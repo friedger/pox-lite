@@ -32,7 +32,7 @@ describe("Contract", () => {
 
   it("deposit function should return True", async () => {
     const tx = poxLiteClient.createTransaction({
-      method: { name: "deposit", args: ["u200", "0x616e6f746865722074657374206d656d6f0000000000000000000000000000000000"] }
+      method: { name: "deposit2", args: ["u200", "0x616e6f746865722074657374206d656d6f0000000000000000000000000000000000"] }
     });
     await tx.sign("SP30JX68J79SMTTN0D2KXQAJBFVYY56BZJEYS3X0B")
     const receipt = await poxLiteClient.submitTransaction(tx);
@@ -46,7 +46,7 @@ describe("Contract", () => {
     });
     await tx.sign("SP30JX68J79SMTTN0D2KXQAJBFVYY56BZJEYS3X0B")
     const receipt = await poxLiteClient.submitTransaction(tx);
-    assert.isTrue(receipt.success);
+    assert.isTrue(receipt.success, JSON.stringify(receipt));
   });
 
   it("redeem-stinger function should return True", async () => {
@@ -64,7 +64,7 @@ describe("Contract", () => {
     });
     await tx.sign("SP30JX68J79SMTTN0D2KXQAJBFVYY56BZJEYS3X0B")
     const receipt = await poxLiteClient.submitTransaction(tx);
-    assert.isTrue(receipt.success);
+    assert.isTrue(receipt.success, JSON.stringify(receipt));
   });
 
     

@@ -21,6 +21,12 @@
   (let ((deposits-at-height (unwrap! (map-get? deposits {block-height: height }) (err u7))))
     (ok deposits-at-height)))
 
+(define-public (deposit2 (amount uint) (memo (buff 70)))
+  (begin 
+    (unwrap! (deposit amount memo) (err u1234))
+    (unwrap! (deposit amount memo) (err u1234))
+    (ok true)))
+
 (define-public (deposit (amount uint) (memo (buff 70)))
   (begin
     (try! (if (> block-height (var-get last-height))
